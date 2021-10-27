@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Registration Page</title>
+
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+        <!-- icheck bootstrap -->
+        <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="dist/css/adminlte.min.css">
+         <!-- jQuery -->
+        <script src="plugins/jquery/jquery.min.js"></script>
+        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.min.js"></script>
+       
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://login2explore.com/jpdb/resources/js/0.0.4/jpdb-commons.js"></script>
+        <script src="resources/js/my-commons.js"></script>
+        <script src="resources/js/register.js"></script>
+        <script>
+            myStatus = "out";
+        </script>
+        <script>checkSession();</script>
+    </head>
+    <body class="hold-transition register-page">
+        <div class="alert-info" id="regmsg"></div>
+        <div class="alert-danger" id="myRegFormMsg"></div>
+        <div class="register-box">
+            <div class="register-logo">
+                <b>Admin</b>LTE
+            </div>
+
+            <div class="card">
+                <div class="card-body register-card-body">
+
+                    <p class="login-box-msg">Register a new membership</p>
+
+                    <form  id="register-form" method="post">
+                        <div class="input-group mb-3">
+                            <input type="text" id="regname" class="form-control" placeholder="Full name">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="email" id="regemail" class="form-control" placeholder="Email" onchange="checkEmail()">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="number" id="regphone" class="form-control" placeholder="Mobile Number" onchange="checkPhone()">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" id="regpwd" class="form-control" placeholder="Password">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" id="regpwd1" class="form-control" placeholder="Retype password">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="button" id="submit" class="btn btn-primary"  onclick=regsaveData() > Register</button>
+                        </div>
+                        <div class="col-4">
+                            <button type="button" id="reset" class="btn btn-primary" onclick=regresetForm() > Reset</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+
+                    <a href="loginPage.html" class="text-center">I already have a membership</a>
+                </div>
+                <!-- /.form-box -->
+            </div><!-- /.card -->
+        </div>
+        <!-- /.register-box -->
+        <!-- Bootstrap 4 -->
+
+    </body>
+</html>

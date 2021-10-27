@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Employee Form | Validation Form</title>
+
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="dist/css/adminlte.min.css">
+        <script src="resources/js/my-commons.js"></script>
+        
+        
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <script type="text/javascript" src="http://login2explore.com/jpdb/resources/js/0.0.4/jpdb-commons.js"></script>
+        <script src="resources/js/my-commons.js"></script>
+        <script src="resources/js/form.js"></script>
+        <script>
+            myStatus = "in";
+            myName = "form";
+        </script>
+        <script>checkSession();</script>
+    </head>
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+            <!-- Navbar -->
+            <div id="myHeader">  </div>
+            <!-- /.navbar -->
+
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-dark-primary elevation-4" id="leftnav"> </aside>
+            <!-- /.sidebar -->
+
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>Employee-Entry Form</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active">Employee-form</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- left column -->
+                            <div class="col-md-12">
+                                <!-- jquery validation -->
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Add Employee</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <!-- form start -->
+                                    <form id="empform" method="post">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label>User Id</label>
+                                                <input type="number" name="empID" class="form-control" id="id"
+                                                       autofocus="autofocus" onchange="getEmp()" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                <input type="text" name="empName" class="form-control" id="name" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>BasicSalary</label>
+                                                <input type="number" name="empSalary" class="form-control" id="salary" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>HRA</label>
+                                                <input type="number" name="empHRA" class="form-control" id="hra" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>DA</label>
+                                                <input type="number" name="empDA" class="form-control" id="da" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Deduction</label>
+                                                <input type="number" name="empDed" class="form-control" id="deduction" disabled>
+                                            </div>
+                                        </div>
+                                        <!-- /.card-body -->
+                                        <div class="card-footer">
+                                            <div id="control" class="row p-1">
+                                                <div class="col-sm-2"> <button type="button" id="new" class="btn btn-primary"   onclick=newForm() > New</button></div>
+                                                <div class="col-sm-2"><button type="button" id="save" class="btn btn-primary"  onclick=saveData() disabled> Save</button></div>
+                                                <div class="col-sm-2"><button type="button" id="edit" class="btn btn-primary"  onclick=editData()> Edit</button></div>
+                                                <div class="col-sm-2"><button type="button" id="change" class="btn btn-primary" onclick=changeData() disabled> Change</button></div>
+                                                <div class="col-sm-2"><button type="button" id="reset" class="btn btn-primary" onclick=resetForm() disabled> Reset</button></div>
+                                            </div>
+
+                                            <div id="navigation" class="row">
+                                                <div class="col-sm-2">  <button type="button" id="first" class="btn btn-primary" onclick=getFirst() > First</button></div>
+                                                <div class="col-sm-2">  <button type="button" id="prev" class="btn btn-primary"  onclick=getPrev()> Previous</button></div>
+                                                <div class="col-sm-2">  <button type="button" id="next" class="btn btn-primary"  onclick=getNext() disabled> Next</button></div>
+                                                <div class="col-sm-2">  <button type="button" id="last" class="btn btn-primary "  onclick=getLast()> Last</button></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                            <!--/.col (left) -->
+                        </div>
+                        <!-- /.row -->
+                    </div><!-- /.container-fluid -->
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <div class=" container-fluid" id="myFooter">  </div>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery -->
+        <script src="plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- jquery-validation -->
+        <script src="plugins/jquery-validation/jquery.validate.min.js"></script>
+        <script src="plugins/jquery-validation/additional-methods.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
+
+
+       
+
+        <script>loadHeader();loadFooter();loadLeftNav();</script>
+
+
+        <!-- Page specific script -->
+        <!--<script>
+            $(function () {
+                $.validator.setDefaults({
+                    submitHandler: function () {
+                        alert("Form successful submitted!");
+                    }
+                });
+                $('#empform').validate({
+                    rules: {
+                        email: {
+                            required: true,
+                            email: true,
+                        },
+                        password: {
+                            required: true,
+                            minlength: 5
+                        },
+                    },
+                    messages: {
+                        email: {
+                            required: "Please enter a email address",
+                            email: "Please enter a vaild email address"
+                        },
+                        password: {
+                            required: "Please provide a password",
+                            minlength: "Your password must be at least 5 characters long"
+                        },
+                        terms: "Please accept our terms"
+                    },
+                    errorElement: 'span',
+                    errorPlacement: function (error, element) {
+                        error.addClass('invalid-feedback');
+                        element.closest('.form-group').append(error);
+                    },
+                    highlight: function (element, errorClass, validClass) {
+                        $(element).addClass('is-invalid');
+                    },
+                    unhighlight: function (element, errorClass, validClass) {
+                        $(element).removeClass('is-invalid');
+                    }
+                });
+            });
+        </script>-->
+    </body>
+</html>
